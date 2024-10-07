@@ -1,0 +1,108 @@
+Pattern 1:
+** Pattern 1: creating 5 processes
+Process 0 (pid 19420) created: will sleep for 2 seconds
+Process 0 (pid 19420): exiting
+** Pattern 1: creating 5 processes
+Parent: created child 0 (pid 19420)
+Parent: created child 1 (pid 19421)
+Parent: created child 2 (pid 19422)
+Process 3 (pid 19423) created: will sleep for 3 seconds
+Process 3 (pid 19423): exiting
+** Pattern 1: creating 5 processes
+Parent: created child 0 (pid 19420)
+Parent: created child 1 (pid 19421)
+Process 2 (pid 19422) created: will sleep for 4 seconds
+Process 2 (pid 19422): exiting
+** Pattern 1: creating 5 processes
+Parent: created child 0 (pid 19420)
+Parent: created child 1 (pid 19421)
+Parent: created child 2 (pid 19422)
+Parent: created child 3 (pid 19423)
+Process 4 (pid 19424) created: will sleep for 4 seconds
+Process 4 (pid 19424): exiting
+** Pattern 1: creating 5 processes
+Parent: created child 0 (pid 19420)
+Process 1 (pid 19421) created: will sleep for 8 seconds
+Process 1 (pid 19421): exiting
+** Pattern 1: creating 5 processes
+Parent: created child 0 (pid 19420)
+Parent: created child 1 (pid 19421)
+Parent: created child 2 (pid 19422)
+Parent: created child 3 (pid 19423)
+Parent: created child 4 (pid 19424)
+** Pattern 1: All processes created
+** Pattern 1: All children have exited
+
+Pattern 2:
+** Pattern 2: creating 5 processes
+Child 0 (pid 19496): starting
+Child 0 (pid 19496), sleeping 7 seconds after creating child 1 
+Process 0 (pid 19496): exiting
+** Pattern 2: creating 5 processes
+Parent: created child 0 (pid 19496)
+Child 1 (pid 19619): starting
+Child 1 (pid 19619), sleeping 1 seconds after creating child 2 
+Process 1 (pid 19619): exiting
+** Pattern 2: creating 5 processes
+Parent: created child 0 (pid 19496)
+Parent: created child 1 (pid 19619)
+Child 2 (pid 19627): starting
+Child 2 (pid 19627), sleeping 3 seconds after creating child 3 
+Process 2 (pid 19627): exiting
+** Pattern 2: creating 5 processes
+Parent: created child 0 (pid 19496)
+Parent: created child 1 (pid 19619)
+Parent: created child 2 (pid 19627)
+Child 3 (pid 19657): starting
+Child 3 (pid 19657), sleeping 2 seconds after creating child 4 
+Process 3 (pid 19657): exiting
+** Pattern 2: creating 5 processes
+Parent: created child 0 (pid 19496)
+Parent: created child 1 (pid 19619)
+Parent: created child 2 (pid 19627)
+Parent: created child 3 (pid 19657)
+Child 4 (pid 19672): starting
+Child 4 (pid 19672) [no children created] sleeping 2 seconds
+Process 4 (pid 19672): exiting
+** Pattern 2: creating 5 processes
+Parent: created child 0 (pid 19496)
+Parent: created child 1 (pid 19619)
+Parent: created child 2 (pid 19627)
+Parent: created child 3 (pid 19657)
+Parent: created child 4 (pid 19672)
+** Pattern 2: All children have exited
+
+Pattern 3:
+** Pattern 3: creating 5 processes
+Process 0 (pid 19418) of 5: starting
+Process 0 (pid 19691) created left child 1
+Process 1 (pid 19691) of 5: starting
+Process 1 (pid 19693) created left child 3
+Process 3 (pid 19693) of 5: starting
+Process 3 (pid 19693) sleeping for 2 seconds
+Process 3 (pid 19693): exiting
+** Pattern 3: creating 5 processes
+Process 0 (pid 19418) of 5: starting
+Process 0 (pid 19691) created left child 1
+Process 1 (pid 19691) of 5: starting
+Process 1 (pid 19694) created right child 4
+Process 4 (pid 19694) of 5: starting
+Process 4 (pid 19694) sleeping for 2 seconds
+Process 4 (pid 19694): exiting
+** Pattern 3: creating 5 processes
+Process 0 (pid 19418) of 5: starting
+Process 0 (pid 19692) created right child 2
+Process 2 (pid 19692) of 5: starting
+Process 2 (pid 19692) sleeping for 7 seconds
+Process 2 (pid 19692): exiting
+** Pattern 3: creating 5 processes
+Process 0 (pid 19418) of 5: starting
+Process 0 (pid 19691) created left child 1
+Process 1 (pid 19691) of 5: starting
+Process 1 (pid 19691) sleeping for 7 seconds
+Process 1 (pid 19691): exiting
+** Pattern 3: creating 5 processes
+Process 0 (pid 19418) of 5: starting
+Process 0 (pid 19418) sleeping for 8 seconds
+Process 0 (pid 19418): exiting
+** Pattern 3: All children have exited
