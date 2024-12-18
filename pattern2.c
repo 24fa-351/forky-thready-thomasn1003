@@ -5,57 +5,63 @@
 #include <time.h>
 
 void pattern2(int num_processes) {
-
-    pid_t pid;
-
     printf("** Pattern 2: creating %d processes\n", num_processes);
 
-    for (int i = 0; i < num_processes; i++) {
+    pid_t pid = 0; 
 
+    if (pid == 0) { 
         pid = fork();
+        
 
-        if (pid == 0) {  
+        for (int i = 0; i < num_processes; i++) {
 
-            srand(time(NULL) ^ (getpid()<<16));
+            if (pid == 0) { 
+                
+                srand(time(NULL) ^ (getpid() << 16));
 
-            int sleep_time = rand() % 8 + 1;
+                int sleep_time = rand() % 8 + 1;
 
-            printf("Child %d (pid %d): starting\n", i, getpid());
+                printf("Process %d (pid %d): started\n", i, getpid());
 
-            if (i < num_processes - 1) {
+                if (i < num_processes - 1) {
 
-                printf("Child %d (pid %d), sleeping %d seconds after creating child %d \n", i, getpid(), sleep_time, i + 1);
+                    printf("Process %d (pid %d) creating Process %d\n", i, getpid(), i + 1);
+
+                } else {
+
+                    printf("Process %d (pid %d) no child created sleeping %d seconds\n", i, getpid(), sleep_time);
+
+                }
+
+                sleep(sleep_time);
+
+                printf("Process %d (pid %d): exiting\n", i, getpid());
+
+            } 
+            
+            else if (pid > 0) {
+
+                wait(NULL);
+
+                break;
 
             } else {
 
-                printf("Child %d (pid %d) [no children created] sleeping %d seconds\n", i, getpid(), sleep_time);
+                perror("Fork failed");
+
+                exit(EXIT_FAILURE);
 
             }
 
-
-
-            sleep(sleep_time);
-
-            printf("Process %d (pid %d): exiting\n", i, getpid());
-
-            exit(0);
-
-        } else if (pid > 0) {
-
-            wait(NULL);
-
-            printf("Parent: created child %d (pid %d)\n", i, pid);
-
-        } else {
-
-            perror("Fork failed");
-
-            exit(EXIT_FAILURE);
-
         }
-
 
     }
 
-    printf("** Pattern 2: All children have exited\n");
+
+    if (pid > 0) {
+
+        printf("** Pattern 2: All children have exited\n");
+
+    }
+
 }
